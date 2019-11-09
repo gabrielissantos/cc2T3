@@ -1,8 +1,8 @@
 grammar casamento;
 
 programa:
-    'casamento:' titulo
-    'data:' data
+    titulo
+    data
     'numero_de_convidados:' numConvidados
     'padrinhos:' listaPadrinhos
     'presentes:' listaPresentes
@@ -151,3 +151,8 @@ NUM_REAL : ('0' .. '9')+ '.' ('0' .. '9')+
 
 URL: 'h' 't' 't' 'p' ':' '/' '/' 'w' 'w' 'w' '.' ('a'..'z')+ '.' 'c' 'o' 'm' ('/')? ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '?' | '.' | '=' | '/')*
 ;
+
+COMMENTNFECHADO:  '{' ~('\n' | '}' )* '\n' 
+               ;
+
+ERROCHAR: .;
