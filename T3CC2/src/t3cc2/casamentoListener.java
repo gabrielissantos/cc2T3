@@ -28,16 +28,6 @@ public interface casamentoListener extends ParseTreeListener {
 	 */
 	void exitTitulo(casamentoParser.TituloContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link casamentoParser#data}.
-	 * @param ctx the parse tree
-	 */
-	void enterData(casamentoParser.DataContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link casamentoParser#data}.
-	 * @param ctx the parse tree
-	 */
-	void exitData(casamentoParser.DataContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link casamentoParser#numConvidados}.
 	 * @param ctx the parse tree
 	 */
@@ -47,6 +37,16 @@ public interface casamentoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNumConvidados(casamentoParser.NumConvidadosContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link casamentoParser#data}.
+	 * @param ctx the parse tree
+	 */
+	void enterData(casamentoParser.DataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link casamentoParser#data}.
+	 * @param ctx the parse tree
+	 */
+	void exitData(casamentoParser.DataContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link casamentoParser#listaPadrinhos}.
 	 * @param ctx the parse tree

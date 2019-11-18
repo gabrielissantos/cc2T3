@@ -21,17 +21,17 @@ public class casamentoParser extends Parser {
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
-		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, NOME=38, STRING=39, 
-		DATA=40, NUM_INT=41, NUM_REAL=42, URL=43, COMMENTNFECHADO=44, ERROCHAR=45;
+		T__31=32, T__32=33, T__33=34, T__34=35, NOME=36, STRING=37, DATA=38, NUM_INT=39, 
+		NUM_REAL=40, WS=41;
 	public static final int
-		RULE_programa = 0, RULE_titulo = 1, RULE_data = 2, RULE_numConvidados = 3, 
+		RULE_programa = 0, RULE_titulo = 1, RULE_numConvidados = 2, RULE_data = 3, 
 		RULE_listaPadrinhos = 4, RULE_listaPresentes = 5, RULE_presente = 6, RULE_listaConvidados = 7, 
 		RULE_listaServicos = 8, RULE_fotografo = 9, RULE_buffet = 10, RULE_cerimonial = 11, 
 		RULE_local = 12, RULE_musica = 13, RULE_decoracao = 14, RULE_convites = 15, 
 		RULE_lua_de_mel = 16;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"programa", "titulo", "data", "numConvidados", "listaPadrinhos", "listaPresentes", 
+			"programa", "titulo", "numConvidados", "data", "listaPadrinhos", "listaPresentes", 
 			"presente", "listaConvidados", "listaServicos", "fotografo", "buffet", 
 			"cerimonial", "local", "musica", "decoracao", "convites", "lua_de_mel"
 		};
@@ -40,14 +40,13 @@ public class casamentoParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'numero_de_convidados:'", "'padrinhos:'", "'presentes:'", "'convidados:'", 
-			"'servicos:'", "'casamento'", "':'", "'data'", "'convidados'", "'['", 
-			"']'", "'{'", "','", "'}'", "'fotografo:'", "'buffet:'", "'cerimonial:'", 
-			"'local:'", "'musica:'", "'decoracao:'", "'convites:'", "'lua_de_mel:'", 
-			"'nome:'", "'contato:'", "'preco:'", "'R$'", "'endereco:'", "'instrumento:'", 
-			"'itens_decoracao:'", "'quantidade_convites:'", "'preco_unidade:'", "'hospedagem:'", 
-			"'contato_hospedagem:'", "'preco_total:'", "'data_ida:'", "'data_volta:'", 
-			"'valor_passagem:'"
+			null, "'casamento:'", "'convidados:'", "'data:'", "'padrinhos:'", "'['", 
+			"':'", "']'", "'presentes:'", "'{'", "','", "'}'", "'servicos:'", "'fotografo:'", 
+			"'buffet:'", "'cerimonial:'", "'local:'", "'musica:'", "'decoracao:'", 
+			"'convites:'", "'lua_de_mel:'", "'nome:'", "'contato:'", "'preco:'", 
+			"'R$'", "'endereco:'", "'instrumento:'", "'itens_decoracao:'", "'quantidade_convites:'", 
+			"'preco_unidade:'", "'hospedagem:'", "'contato_hospedagem:'", "'preco_total:'", 
+			"'data_ida:'", "'data_volta:'", "'valor_passagem:'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -56,8 +55,7 @@ public class casamentoParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, "NOME", "STRING", "DATA", "NUM_INT", "NUM_REAL", "URL", "COMMENTNFECHADO", 
-			"ERROCHAR"
+			"NOME", "STRING", "DATA", "NUM_INT", "NUM_REAL", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -115,11 +113,11 @@ public class casamentoParser extends Parser {
 		public TituloContext titulo() {
 			return getRuleContext(TituloContext.class,0);
 		}
-		public DataContext data() {
-			return getRuleContext(DataContext.class,0);
-		}
 		public NumConvidadosContext numConvidados() {
 			return getRuleContext(NumConvidadosContext.class,0);
+		}
+		public DataContext data() {
+			return getRuleContext(DataContext.class,0);
 		}
 		public ListaPadrinhosContext listaPadrinhos() {
 			return getRuleContext(ListaPadrinhosContext.class,0);
@@ -156,26 +154,16 @@ public class casamentoParser extends Parser {
 			setState(34);
 			titulo();
 			setState(35);
-			data();
-			setState(36);
-			match(T__0);
-			setState(37);
 			numConvidados();
-			setState(38);
-			match(T__1);
-			setState(39);
+			setState(36);
+			data();
+			setState(37);
 			listaPadrinhos();
-			setState(40);
-			match(T__2);
-			setState(41);
+			setState(38);
 			listaPresentes();
-			setState(42);
-			match(T__3);
-			setState(43);
+			setState(39);
 			listaConvidados();
-			setState(44);
-			match(T__4);
-			setState(45);
+			setState(40);
 			listaServicos();
 			}
 		}
@@ -212,53 +200,10 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
-			match(T__5);
-			setState(48);
-			match(T__6);
-			setState(49);
+			setState(42);
+			match(T__0);
+			setState(43);
 			match(STRING);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class DataContext extends ParserRuleContext {
-		public TerminalNode DATA() { return getToken(casamentoParser.DATA, 0); }
-		public DataContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_data; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof casamentoListener ) ((casamentoListener)listener).enterData(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof casamentoListener ) ((casamentoListener)listener).exitData(this);
-		}
-	}
-
-	public final DataContext data() throws RecognitionException {
-		DataContext _localctx = new DataContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_data);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(51);
-			match(T__7);
-			setState(52);
-			match(T__6);
-			setState(53);
-			match(DATA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -290,16 +235,53 @@ public class casamentoParser extends Parser {
 
 	public final NumConvidadosContext numConvidados() throws RecognitionException {
 		NumConvidadosContext _localctx = new NumConvidadosContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_numConvidados);
+		enterRule(_localctx, 4, RULE_numConvidados);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(55);
-			match(T__8);
-			setState(56);
-			match(T__6);
-			setState(57);
+			setState(45);
+			match(T__1);
+			setState(46);
 			match(NUM_INT);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DataContext extends ParserRuleContext {
+		public TerminalNode DATA() { return getToken(casamentoParser.DATA, 0); }
+		public DataContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_data; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof casamentoListener ) ((casamentoListener)listener).enterData(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof casamentoListener ) ((casamentoListener)listener).exitData(this);
+		}
+	}
+
+	public final DataContext data() throws RecognitionException {
+		DataContext _localctx = new DataContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_data);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(48);
+			match(T__2);
+			setState(49);
+			match(DATA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -336,16 +318,18 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
-			match(T__9);
-			setState(60);
+			setState(51);
+			match(T__3);
+			setState(52);
+			match(T__4);
+			setState(53);
 			match(NOME);
-			setState(61);
-			match(T__6);
-			setState(62);
+			setState(54);
+			match(T__5);
+			setState(55);
 			match(STRING);
-			setState(63);
-			match(T__10);
+			setState(56);
+			match(T__6);
 			}
 		}
 		catch (RecognitionException re) {
@@ -387,24 +371,26 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
-			match(T__9);
-			setState(69);
+			setState(58);
+			match(T__7);
+			setState(59);
+			match(T__4);
+			setState(63);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__11) {
+			while (_la==T__8) {
 				{
 				{
-				setState(66);
+				setState(60);
 				presente();
 				}
 				}
-				setState(71);
+				setState(65);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(72);
-			match(T__10);
+			setState(66);
+			match(T__6);
 			}
 		}
 		catch (RecognitionException re) {
@@ -421,8 +407,10 @@ public class casamentoParser extends Parser {
 	public static class PresenteContext extends ParserRuleContext {
 		public Token descricao;
 		public Token url;
-		public TerminalNode STRING() { return getToken(casamentoParser.STRING, 0); }
-		public TerminalNode URL() { return getToken(casamentoParser.URL, 0); }
+		public List<TerminalNode> STRING() { return getTokens(casamentoParser.STRING); }
+		public TerminalNode STRING(int i) {
+			return getToken(casamentoParser.STRING, i);
+		}
 		public List<TerminalNode> NOME() { return getTokens(casamentoParser.NOME); }
 		public TerminalNode NOME(int i) {
 			return getToken(casamentoParser.NOME, i);
@@ -448,48 +436,48 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
-			match(T__11);
-			setState(75);
+			setState(68);
+			match(T__8);
+			setState(69);
 			((PresenteContext)_localctx).descricao = match(STRING);
-			setState(76);
-			match(T__12);
-			setState(77);
-			((PresenteContext)_localctx).url = match(URL);
-			setState(78);
-			match(T__12);
-			setState(79);
+			setState(70);
 			match(T__9);
-			setState(88);
+			setState(71);
+			((PresenteContext)_localctx).url = match(STRING);
+			setState(72);
+			match(T__9);
+			setState(73);
+			match(T__4);
+			setState(82);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==NOME) {
 				{
-				setState(80);
+				setState(74);
 				match(NOME);
-				setState(85);
+				setState(79);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__12) {
+				while (_la==T__9) {
 					{
 					{
-					setState(81);
-					match(T__12);
-					setState(82);
+					setState(75);
+					match(T__9);
+					setState(76);
 					match(NOME);
 					}
 					}
-					setState(87);
+					setState(81);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
 				}
 			}
 
-			setState(90);
+			setState(84);
+			match(T__6);
+			setState(85);
 			match(T__10);
-			setState(91);
-			match(T__13);
 			}
 		}
 		catch (RecognitionException re) {
@@ -529,28 +517,30 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93);
-			match(T__9);
-			setState(94);
+			setState(87);
+			match(T__1);
+			setState(88);
+			match(T__4);
+			setState(89);
 			match(STRING);
-			setState(99);
+			setState(94);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__12) {
+			while (_la==T__9) {
 				{
 				{
-				setState(95);
-				match(T__12);
-				setState(96);
+				setState(90);
+				match(T__9);
+				setState(91);
 				match(STRING);
 				}
 				}
-				setState(101);
+				setState(96);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(102);
-			match(T__10);
+			setState(97);
+			match(T__6);
 			}
 		}
 		catch (RecognitionException re) {
@@ -607,83 +597,85 @@ public class casamentoParser extends Parser {
 		ListaServicosContext _localctx = new ListaServicosContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_listaServicos);
 		try {
-			setState(123);
+			setState(119);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__9:
+			case T__11:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(104);
-				match(T__9);
-				setState(105);
-				match(T__14);
-				setState(106);
+				setState(99);
+				match(T__11);
+				setState(100);
+				match(T__4);
+				setState(101);
+				match(T__12);
+				setState(102);
 				fotografo();
 				}
 				break;
-			case T__15:
+			case T__13:
 				enterOuterAlt(_localctx, 2);
+				{
+				setState(103);
+				match(T__13);
+				setState(104);
+				buffet();
+				}
+				break;
+			case T__14:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(105);
+				match(T__14);
+				setState(106);
+				cerimonial();
+				}
+				break;
+			case T__15:
+				enterOuterAlt(_localctx, 4);
 				{
 				setState(107);
 				match(T__15);
 				setState(108);
-				buffet();
+				local();
 				}
 				break;
 			case T__16:
-				enterOuterAlt(_localctx, 3);
+				enterOuterAlt(_localctx, 5);
 				{
 				setState(109);
 				match(T__16);
 				setState(110);
-				cerimonial();
+				musica();
 				}
 				break;
 			case T__17:
-				enterOuterAlt(_localctx, 4);
+				enterOuterAlt(_localctx, 6);
 				{
 				setState(111);
 				match(T__17);
 				setState(112);
-				local();
+				decoracao();
 				}
 				break;
 			case T__18:
-				enterOuterAlt(_localctx, 5);
+				enterOuterAlt(_localctx, 7);
 				{
 				setState(113);
 				match(T__18);
 				setState(114);
-				musica();
+				convites();
 				}
 				break;
 			case T__19:
-				enterOuterAlt(_localctx, 6);
+				enterOuterAlt(_localctx, 8);
 				{
 				setState(115);
 				match(T__19);
 				setState(116);
-				decoracao();
-				}
-				break;
-			case T__20:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(117);
-				match(T__20);
-				setState(118);
-				convites();
-				}
-				break;
-			case T__21:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(119);
-				match(T__21);
-				setState(120);
 				lua_de_mel();
-				setState(121);
-				match(T__10);
+				setState(117);
+				match(T__6);
 				}
 				break;
 			default:
@@ -725,24 +717,24 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(121);
+			match(T__8);
+			setState(122);
+			match(T__20);
+			setState(123);
+			match(STRING);
+			setState(124);
+			match(T__21);
 			setState(125);
-			match(T__11);
+			match(NUM_INT);
 			setState(126);
 			match(T__22);
 			setState(127);
-			match(STRING);
-			setState(128);
 			match(T__23);
-			setState(129);
-			match(NUM_INT);
-			setState(130);
-			match(T__24);
-			setState(131);
-			match(T__25);
-			setState(132);
+			setState(128);
 			match(NUM_REAL);
-			setState(133);
-			match(T__13);
+			setState(129);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -780,24 +772,24 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(131);
+			match(T__8);
+			setState(132);
+			match(T__20);
+			setState(133);
+			match(STRING);
+			setState(134);
+			match(T__21);
 			setState(135);
-			match(T__11);
+			match(NUM_INT);
 			setState(136);
 			match(T__22);
 			setState(137);
-			match(STRING);
-			setState(138);
 			match(T__23);
-			setState(139);
-			match(NUM_INT);
-			setState(140);
-			match(T__24);
-			setState(141);
-			match(T__25);
-			setState(142);
+			setState(138);
 			match(NUM_REAL);
-			setState(143);
-			match(T__13);
+			setState(139);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -835,24 +827,24 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(141);
+			match(T__8);
+			setState(142);
+			match(T__20);
+			setState(143);
+			match(STRING);
+			setState(144);
+			match(T__21);
 			setState(145);
-			match(T__11);
+			match(NUM_INT);
 			setState(146);
 			match(T__22);
 			setState(147);
-			match(STRING);
-			setState(148);
 			match(T__23);
-			setState(149);
-			match(NUM_INT);
-			setState(150);
-			match(T__24);
-			setState(151);
-			match(T__25);
-			setState(152);
+			setState(148);
 			match(NUM_REAL);
-			setState(153);
-			match(T__13);
+			setState(149);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -893,28 +885,28 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(155);
-			match(T__11);
-			setState(156);
-			match(T__22);
-			setState(157);
+			setState(151);
+			match(T__8);
+			setState(152);
+			match(T__20);
+			setState(153);
 			match(STRING);
-			setState(158);
-			match(T__26);
-			setState(159);
-			match(STRING);
-			setState(160);
-			match(T__23);
-			setState(161);
-			match(NUM_INT);
-			setState(162);
+			setState(154);
 			match(T__24);
-			setState(163);
-			match(T__25);
-			setState(164);
+			setState(155);
+			match(STRING);
+			setState(156);
+			match(T__21);
+			setState(157);
+			match(NUM_INT);
+			setState(158);
+			match(T__22);
+			setState(159);
+			match(T__23);
+			setState(160);
 			match(NUM_REAL);
-			setState(165);
-			match(T__13);
+			setState(161);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -956,64 +948,64 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(163);
+			match(T__8);
+			setState(164);
+			match(T__20);
+			setState(165);
+			match(STRING);
+			setState(166);
+			match(T__21);
 			setState(167);
-			match(T__11);
+			match(NUM_INT);
 			setState(168);
 			match(T__22);
 			setState(169);
-			match(STRING);
-			setState(170);
 			match(T__23);
-			setState(171);
-			match(NUM_INT);
-			setState(172);
-			match(T__24);
-			setState(173);
-			match(T__25);
-			setState(174);
+			setState(170);
 			match(NUM_REAL);
-			setState(175);
-			match(T__27);
-			setState(176);
+			setState(171);
+			match(T__25);
+			setState(172);
 			match(STRING);
+			setState(177);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==T__9) {
+				{
+				{
+				setState(173);
+				match(T__9);
+				setState(174);
+				match(STRING);
+				}
+				}
+				setState(179);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(180);
+			match(T__16);
 			setState(181);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==T__12) {
-				{
-				{
-				setState(177);
-				match(T__12);
-				setState(178);
-				match(STRING);
-				}
-				}
-				setState(183);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(184);
-			match(T__18);
-			setState(185);
 			match(STRING);
-			setState(190);
+			setState(186);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__12) {
+			while (_la==T__9) {
 				{
 				{
-				setState(186);
-				match(T__12);
-				setState(187);
+				setState(182);
+				match(T__9);
+				setState(183);
 				match(STRING);
 				}
 				}
-				setState(192);
+				setState(188);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(193);
-			match(T__13);
+			setState(189);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1055,36 +1047,36 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(191);
+			match(T__8);
+			setState(192);
+			match(T__20);
+			setState(193);
+			match(STRING);
+			setState(194);
+			match(T__21);
 			setState(195);
-			match(T__11);
+			match(NUM_INT);
 			setState(196);
 			match(T__22);
 			setState(197);
-			match(STRING);
-			setState(198);
 			match(T__23);
-			setState(199);
-			match(NUM_INT);
-			setState(200);
-			match(T__24);
-			setState(201);
-			match(T__25);
-			setState(202);
+			setState(198);
 			match(NUM_REAL);
-			setState(205);
+			setState(201);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__28) {
+			if (_la==T__26) {
 				{
-				setState(203);
-				match(T__28);
-				setState(204);
+				setState(199);
+				match(T__26);
+				setState(200);
 				match(STRING);
 				}
 			}
 
-			setState(207);
-			match(T__13);
+			setState(203);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1125,28 +1117,28 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(209);
-			match(T__11);
-			setState(210);
-			match(T__22);
-			setState(211);
+			setState(205);
+			match(T__8);
+			setState(206);
+			match(T__20);
+			setState(207);
 			match(STRING);
+			setState(208);
+			match(T__21);
+			setState(209);
+			match(NUM_INT);
+			setState(210);
+			match(T__27);
+			setState(211);
+			match(NUM_INT);
 			setState(212);
-			match(T__23);
+			match(T__28);
 			setState(213);
-			match(NUM_INT);
+			match(T__23);
 			setState(214);
-			match(T__29);
-			setState(215);
-			match(NUM_INT);
-			setState(216);
-			match(T__30);
-			setState(217);
-			match(T__25);
-			setState(218);
 			match(NUM_REAL);
-			setState(219);
-			match(T__13);
+			setState(215);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1194,42 +1186,42 @@ public class casamentoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(221);
-			match(T__11);
-			setState(222);
-			match(T__17);
-			setState(223);
+			setState(217);
+			match(T__8);
+			setState(218);
+			match(T__15);
+			setState(219);
 			match(STRING);
+			setState(220);
+			match(T__29);
+			setState(221);
+			match(STRING);
+			setState(222);
+			match(T__30);
+			setState(223);
+			match(NUM_INT);
 			setState(224);
 			match(T__31);
 			setState(225);
-			match(STRING);
+			match(T__23);
 			setState(226);
-			match(T__32);
-			setState(227);
-			match(NUM_INT);
-			setState(228);
-			match(T__33);
-			setState(229);
-			match(T__25);
-			setState(230);
 			match(NUM_REAL);
+			setState(227);
+			match(T__32);
+			setState(228);
+			match(DATA);
+			setState(229);
+			match(T__33);
+			setState(230);
+			match(DATA);
 			setState(231);
 			match(T__34);
 			setState(232);
-			match(DATA);
+			match(T__23);
 			setState(233);
-			match(T__35);
-			setState(234);
-			match(DATA);
-			setState(235);
-			match(T__36);
-			setState(236);
-			match(T__25);
-			setState(237);
 			match(NUM_REAL);
-			setState(238);
-			match(T__13);
+			setState(234);
+			match(T__10);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1244,77 +1236,76 @@ public class casamentoParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3/\u00f3\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3+\u00ef\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3"+
-		"\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\7\7F\n"+
-		"\7\f\7\16\7I\13\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\bV\n\b"+
-		"\f\b\16\bY\13\b\5\b[\n\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\7\td\n\t\f\t\16\t"+
-		"g\13\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n"+
-		"\3\n\3\n\3\n\3\n\3\n\5\n~\n\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
-		"\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r"+
-		"\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16"+
-		"\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
-		"\7\17\u00b6\n\17\f\17\16\17\u00b9\13\17\3\17\3\17\3\17\3\17\7\17\u00bf"+
-		"\n\17\f\17\16\17\u00c2\13\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\20\3"+
-		"\20\3\20\3\20\3\20\5\20\u00d0\n\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21"+
-		"\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22"+
-		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\2\2"+
-		"\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2\2\2\u00ef\2$\3\2\2\2\4"+
-		"\61\3\2\2\2\6\65\3\2\2\2\b9\3\2\2\2\n=\3\2\2\2\fC\3\2\2\2\16L\3\2\2\2"+
-		"\20_\3\2\2\2\22}\3\2\2\2\24\177\3\2\2\2\26\u0089\3\2\2\2\30\u0093\3\2"+
-		"\2\2\32\u009d\3\2\2\2\34\u00a9\3\2\2\2\36\u00c5\3\2\2\2 \u00d3\3\2\2\2"+
-		"\"\u00df\3\2\2\2$%\5\4\3\2%&\5\6\4\2&\'\7\3\2\2\'(\5\b\5\2()\7\4\2\2)"+
-		"*\5\n\6\2*+\7\5\2\2+,\5\f\7\2,-\7\6\2\2-.\5\20\t\2./\7\7\2\2/\60\5\22"+
-		"\n\2\60\3\3\2\2\2\61\62\7\b\2\2\62\63\7\t\2\2\63\64\7)\2\2\64\5\3\2\2"+
-		"\2\65\66\7\n\2\2\66\67\7\t\2\2\678\7*\2\28\7\3\2\2\29:\7\13\2\2:;\7\t"+
-		"\2\2;<\7+\2\2<\t\3\2\2\2=>\7\f\2\2>?\7(\2\2?@\7\t\2\2@A\7)\2\2AB\7\r\2"+
-		"\2B\13\3\2\2\2CG\7\f\2\2DF\5\16\b\2ED\3\2\2\2FI\3\2\2\2GE\3\2\2\2GH\3"+
-		"\2\2\2HJ\3\2\2\2IG\3\2\2\2JK\7\r\2\2K\r\3\2\2\2LM\7\16\2\2MN\7)\2\2NO"+
-		"\7\17\2\2OP\7-\2\2PQ\7\17\2\2QZ\7\f\2\2RW\7(\2\2ST\7\17\2\2TV\7(\2\2U"+
-		"S\3\2\2\2VY\3\2\2\2WU\3\2\2\2WX\3\2\2\2X[\3\2\2\2YW\3\2\2\2ZR\3\2\2\2"+
-		"Z[\3\2\2\2[\\\3\2\2\2\\]\7\r\2\2]^\7\20\2\2^\17\3\2\2\2_`\7\f\2\2`e\7"+
-		")\2\2ab\7\17\2\2bd\7)\2\2ca\3\2\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2fh\3"+
-		"\2\2\2ge\3\2\2\2hi\7\r\2\2i\21\3\2\2\2jk\7\f\2\2kl\7\21\2\2l~\5\24\13"+
-		"\2mn\7\22\2\2n~\5\26\f\2op\7\23\2\2p~\5\30\r\2qr\7\24\2\2r~\5\32\16\2"+
-		"st\7\25\2\2t~\5\34\17\2uv\7\26\2\2v~\5\36\20\2wx\7\27\2\2x~\5 \21\2yz"+
-		"\7\30\2\2z{\5\"\22\2{|\7\r\2\2|~\3\2\2\2}j\3\2\2\2}m\3\2\2\2}o\3\2\2\2"+
-		"}q\3\2\2\2}s\3\2\2\2}u\3\2\2\2}w\3\2\2\2}y\3\2\2\2~\23\3\2\2\2\177\u0080"+
-		"\7\16\2\2\u0080\u0081\7\31\2\2\u0081\u0082\7)\2\2\u0082\u0083\7\32\2\2"+
-		"\u0083\u0084\7+\2\2\u0084\u0085\7\33\2\2\u0085\u0086\7\34\2\2\u0086\u0087"+
-		"\7,\2\2\u0087\u0088\7\20\2\2\u0088\25\3\2\2\2\u0089\u008a\7\16\2\2\u008a"+
-		"\u008b\7\31\2\2\u008b\u008c\7)\2\2\u008c\u008d\7\32\2\2\u008d\u008e\7"+
-		"+\2\2\u008e\u008f\7\33\2\2\u008f\u0090\7\34\2\2\u0090\u0091\7,\2\2\u0091"+
-		"\u0092\7\20\2\2\u0092\27\3\2\2\2\u0093\u0094\7\16\2\2\u0094\u0095\7\31"+
-		"\2\2\u0095\u0096\7)\2\2\u0096\u0097\7\32\2\2\u0097\u0098\7+\2\2\u0098"+
-		"\u0099\7\33\2\2\u0099\u009a\7\34\2\2\u009a\u009b\7,\2\2\u009b\u009c\7"+
-		"\20\2\2\u009c\31\3\2\2\2\u009d\u009e\7\16\2\2\u009e\u009f\7\31\2\2\u009f"+
-		"\u00a0\7)\2\2\u00a0\u00a1\7\35\2\2\u00a1\u00a2\7)\2\2\u00a2\u00a3\7\32"+
-		"\2\2\u00a3\u00a4\7+\2\2\u00a4\u00a5\7\33\2\2\u00a5\u00a6\7\34\2\2\u00a6"+
-		"\u00a7\7,\2\2\u00a7\u00a8\7\20\2\2\u00a8\33\3\2\2\2\u00a9\u00aa\7\16\2"+
-		"\2\u00aa\u00ab\7\31\2\2\u00ab\u00ac\7)\2\2\u00ac\u00ad\7\32\2\2\u00ad"+
-		"\u00ae\7+\2\2\u00ae\u00af\7\33\2\2\u00af\u00b0\7\34\2\2\u00b0\u00b1\7"+
-		",\2\2\u00b1\u00b2\7\36\2\2\u00b2\u00b7\7)\2\2\u00b3\u00b4\7\17\2\2\u00b4"+
-		"\u00b6\7)\2\2\u00b5\u00b3\3\2\2\2\u00b6\u00b9\3\2\2\2\u00b7\u00b5\3\2"+
-		"\2\2\u00b7\u00b8\3\2\2\2\u00b8\u00ba\3\2\2\2\u00b9\u00b7\3\2\2\2\u00ba"+
-		"\u00bb\7\25\2\2\u00bb\u00c0\7)\2\2\u00bc\u00bd\7\17\2\2\u00bd\u00bf\7"+
-		")\2\2\u00be\u00bc\3\2\2\2\u00bf\u00c2\3\2\2\2\u00c0\u00be\3\2\2\2\u00c0"+
-		"\u00c1\3\2\2\2\u00c1\u00c3\3\2\2\2\u00c2\u00c0\3\2\2\2\u00c3\u00c4\7\20"+
-		"\2\2\u00c4\35\3\2\2\2\u00c5\u00c6\7\16\2\2\u00c6\u00c7\7\31\2\2\u00c7"+
-		"\u00c8\7)\2\2\u00c8\u00c9\7\32\2\2\u00c9\u00ca\7+\2\2\u00ca\u00cb\7\33"+
-		"\2\2\u00cb\u00cc\7\34\2\2\u00cc\u00cf\7,\2\2\u00cd\u00ce\7\37\2\2\u00ce"+
-		"\u00d0\7)\2\2\u00cf\u00cd\3\2\2\2\u00cf\u00d0\3\2\2\2\u00d0\u00d1\3\2"+
-		"\2\2\u00d1\u00d2\7\20\2\2\u00d2\37\3\2\2\2\u00d3\u00d4\7\16\2\2\u00d4"+
-		"\u00d5\7\31\2\2\u00d5\u00d6\7)\2\2\u00d6\u00d7\7\32\2\2\u00d7\u00d8\7"+
-		"+\2\2\u00d8\u00d9\7 \2\2\u00d9\u00da\7+\2\2\u00da\u00db\7!\2\2\u00db\u00dc"+
-		"\7\34\2\2\u00dc\u00dd\7,\2\2\u00dd\u00de\7\20\2\2\u00de!\3\2\2\2\u00df"+
-		"\u00e0\7\16\2\2\u00e0\u00e1\7\24\2\2\u00e1\u00e2\7)\2\2\u00e2\u00e3\7"+
-		"\"\2\2\u00e3\u00e4\7)\2\2\u00e4\u00e5\7#\2\2\u00e5\u00e6\7+\2\2\u00e6"+
-		"\u00e7\7$\2\2\u00e7\u00e8\7\34\2\2\u00e8\u00e9\7,\2\2\u00e9\u00ea\7%\2"+
-		"\2\u00ea\u00eb\7*\2\2\u00eb\u00ec\7&\2\2\u00ec\u00ed\7*\2\2\u00ed\u00ee"+
-		"\7\'\2\2\u00ee\u00ef\7\34\2\2\u00ef\u00f0\7,\2\2\u00f0\u00f1\7\20\2\2"+
-		"\u00f1#\3\2\2\2\nGWZe}\u00b7\u00c0\u00cf";
+		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3\5\3"+
+		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\7\7@\n\7\f\7\16\7C\13\7\3\7\3\7"+
+		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\bP\n\b\f\b\16\bS\13\b\5\bU\n\b"+
+		"\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\7\t_\n\t\f\t\16\tb\13\t\3\t\3\t\3\n\3"+
+		"\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n"+
+		"\3\n\5\nz\n\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3"+
+		"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
+		"\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\17"+
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\7\17\u00b2\n\17"+
+		"\f\17\16\17\u00b5\13\17\3\17\3\17\3\17\3\17\7\17\u00bb\n\17\f\17\16\17"+
+		"\u00be\13\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3"+
+		"\20\5\20\u00cc\n\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22"+
+		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\2\2\23\2\4\6\b\n\f"+
+		"\16\20\22\24\26\30\32\34\36 \"\2\2\2\u00eb\2$\3\2\2\2\4,\3\2\2\2\6/\3"+
+		"\2\2\2\b\62\3\2\2\2\n\65\3\2\2\2\f<\3\2\2\2\16F\3\2\2\2\20Y\3\2\2\2\22"+
+		"y\3\2\2\2\24{\3\2\2\2\26\u0085\3\2\2\2\30\u008f\3\2\2\2\32\u0099\3\2\2"+
+		"\2\34\u00a5\3\2\2\2\36\u00c1\3\2\2\2 \u00cf\3\2\2\2\"\u00db\3\2\2\2$%"+
+		"\5\4\3\2%&\5\6\4\2&\'\5\b\5\2\'(\5\n\6\2()\5\f\7\2)*\5\20\t\2*+\5\22\n"+
+		"\2+\3\3\2\2\2,-\7\3\2\2-.\7\'\2\2.\5\3\2\2\2/\60\7\4\2\2\60\61\7)\2\2"+
+		"\61\7\3\2\2\2\62\63\7\5\2\2\63\64\7(\2\2\64\t\3\2\2\2\65\66\7\6\2\2\66"+
+		"\67\7\7\2\2\678\7&\2\289\7\b\2\29:\7\'\2\2:;\7\t\2\2;\13\3\2\2\2<=\7\n"+
+		"\2\2=A\7\7\2\2>@\5\16\b\2?>\3\2\2\2@C\3\2\2\2A?\3\2\2\2AB\3\2\2\2BD\3"+
+		"\2\2\2CA\3\2\2\2DE\7\t\2\2E\r\3\2\2\2FG\7\13\2\2GH\7\'\2\2HI\7\f\2\2I"+
+		"J\7\'\2\2JK\7\f\2\2KT\7\7\2\2LQ\7&\2\2MN\7\f\2\2NP\7&\2\2OM\3\2\2\2PS"+
+		"\3\2\2\2QO\3\2\2\2QR\3\2\2\2RU\3\2\2\2SQ\3\2\2\2TL\3\2\2\2TU\3\2\2\2U"+
+		"V\3\2\2\2VW\7\t\2\2WX\7\r\2\2X\17\3\2\2\2YZ\7\4\2\2Z[\7\7\2\2[`\7\'\2"+
+		"\2\\]\7\f\2\2]_\7\'\2\2^\\\3\2\2\2_b\3\2\2\2`^\3\2\2\2`a\3\2\2\2ac\3\2"+
+		"\2\2b`\3\2\2\2cd\7\t\2\2d\21\3\2\2\2ef\7\16\2\2fg\7\7\2\2gh\7\17\2\2h"+
+		"z\5\24\13\2ij\7\20\2\2jz\5\26\f\2kl\7\21\2\2lz\5\30\r\2mn\7\22\2\2nz\5"+
+		"\32\16\2op\7\23\2\2pz\5\34\17\2qr\7\24\2\2rz\5\36\20\2st\7\25\2\2tz\5"+
+		" \21\2uv\7\26\2\2vw\5\"\22\2wx\7\t\2\2xz\3\2\2\2ye\3\2\2\2yi\3\2\2\2y"+
+		"k\3\2\2\2ym\3\2\2\2yo\3\2\2\2yq\3\2\2\2ys\3\2\2\2yu\3\2\2\2z\23\3\2\2"+
+		"\2{|\7\13\2\2|}\7\27\2\2}~\7\'\2\2~\177\7\30\2\2\177\u0080\7)\2\2\u0080"+
+		"\u0081\7\31\2\2\u0081\u0082\7\32\2\2\u0082\u0083\7*\2\2\u0083\u0084\7"+
+		"\r\2\2\u0084\25\3\2\2\2\u0085\u0086\7\13\2\2\u0086\u0087\7\27\2\2\u0087"+
+		"\u0088\7\'\2\2\u0088\u0089\7\30\2\2\u0089\u008a\7)\2\2\u008a\u008b\7\31"+
+		"\2\2\u008b\u008c\7\32\2\2\u008c\u008d\7*\2\2\u008d\u008e\7\r\2\2\u008e"+
+		"\27\3\2\2\2\u008f\u0090\7\13\2\2\u0090\u0091\7\27\2\2\u0091\u0092\7\'"+
+		"\2\2\u0092\u0093\7\30\2\2\u0093\u0094\7)\2\2\u0094\u0095\7\31\2\2\u0095"+
+		"\u0096\7\32\2\2\u0096\u0097\7*\2\2\u0097\u0098\7\r\2\2\u0098\31\3\2\2"+
+		"\2\u0099\u009a\7\13\2\2\u009a\u009b\7\27\2\2\u009b\u009c\7\'\2\2\u009c"+
+		"\u009d\7\33\2\2\u009d\u009e\7\'\2\2\u009e\u009f\7\30\2\2\u009f\u00a0\7"+
+		")\2\2\u00a0\u00a1\7\31\2\2\u00a1\u00a2\7\32\2\2\u00a2\u00a3\7*\2\2\u00a3"+
+		"\u00a4\7\r\2\2\u00a4\33\3\2\2\2\u00a5\u00a6\7\13\2\2\u00a6\u00a7\7\27"+
+		"\2\2\u00a7\u00a8\7\'\2\2\u00a8\u00a9\7\30\2\2\u00a9\u00aa\7)\2\2\u00aa"+
+		"\u00ab\7\31\2\2\u00ab\u00ac\7\32\2\2\u00ac\u00ad\7*\2\2\u00ad\u00ae\7"+
+		"\34\2\2\u00ae\u00b3\7\'\2\2\u00af\u00b0\7\f\2\2\u00b0\u00b2\7\'\2\2\u00b1"+
+		"\u00af\3\2\2\2\u00b2\u00b5\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4\3\2"+
+		"\2\2\u00b4\u00b6\3\2\2\2\u00b5\u00b3\3\2\2\2\u00b6\u00b7\7\23\2\2\u00b7"+
+		"\u00bc\7\'\2\2\u00b8\u00b9\7\f\2\2\u00b9\u00bb\7\'\2\2\u00ba\u00b8\3\2"+
+		"\2\2\u00bb\u00be\3\2\2\2\u00bc\u00ba\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd"+
+		"\u00bf\3\2\2\2\u00be\u00bc\3\2\2\2\u00bf\u00c0\7\r\2\2\u00c0\35\3\2\2"+
+		"\2\u00c1\u00c2\7\13\2\2\u00c2\u00c3\7\27\2\2\u00c3\u00c4\7\'\2\2\u00c4"+
+		"\u00c5\7\30\2\2\u00c5\u00c6\7)\2\2\u00c6\u00c7\7\31\2\2\u00c7\u00c8\7"+
+		"\32\2\2\u00c8\u00cb\7*\2\2\u00c9\u00ca\7\35\2\2\u00ca\u00cc\7\'\2\2\u00cb"+
+		"\u00c9\3\2\2\2\u00cb\u00cc\3\2\2\2\u00cc\u00cd\3\2\2\2\u00cd\u00ce\7\r"+
+		"\2\2\u00ce\37\3\2\2\2\u00cf\u00d0\7\13\2\2\u00d0\u00d1\7\27\2\2\u00d1"+
+		"\u00d2\7\'\2\2\u00d2\u00d3\7\30\2\2\u00d3\u00d4\7)\2\2\u00d4\u00d5\7\36"+
+		"\2\2\u00d5\u00d6\7)\2\2\u00d6\u00d7\7\37\2\2\u00d7\u00d8\7\32\2\2\u00d8"+
+		"\u00d9\7*\2\2\u00d9\u00da\7\r\2\2\u00da!\3\2\2\2\u00db\u00dc\7\13\2\2"+
+		"\u00dc\u00dd\7\22\2\2\u00dd\u00de\7\'\2\2\u00de\u00df\7 \2\2\u00df\u00e0"+
+		"\7\'\2\2\u00e0\u00e1\7!\2\2\u00e1\u00e2\7)\2\2\u00e2\u00e3\7\"\2\2\u00e3"+
+		"\u00e4\7\32\2\2\u00e4\u00e5\7*\2\2\u00e5\u00e6\7#\2\2\u00e6\u00e7\7(\2"+
+		"\2\u00e7\u00e8\7$\2\2\u00e8\u00e9\7(\2\2\u00e9\u00ea\7%\2\2\u00ea\u00eb"+
+		"\7\32\2\2\u00eb\u00ec\7*\2\2\u00ec\u00ed\7\r\2\2\u00ed#\3\2\2\2\nAQT`"+
+		"y\u00b3\u00bc\u00cb";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

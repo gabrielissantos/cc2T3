@@ -2,34 +2,34 @@ grammar casamento;
 
 programa:
     titulo
+    numConvidados
     data
-    'numero_de_convidados:' numConvidados
-    'padrinhos:' listaPadrinhos
-    'presentes:' listaPresentes
-    'convidados:' listaConvidados
-    'servicos:' listaServicos
+    listaPadrinhos
+    listaPresentes
+    listaConvidados
+    listaServicos
 ;
 
 titulo:
-    'casamento' ':' STRING
-;
-
-data:
-    'data' ':' DATA
+    'casamento:' STRING
 ;
 
 numConvidados:
-    'convidados' ':' NUM_INT
+    'convidados:' NUM_INT
+;
+
+data:
+    'data:' DATA
 ;
 
 listaPadrinhos:
-    '['
+    'padrinhos:' '['
         NOME ':' STRING
     ']'
 ;
 
 listaPresentes:
-    '[' 
+    'presentes:' '[' 
         presente* 
     ']'
 ;
@@ -37,19 +37,19 @@ listaPresentes:
 presente:
     '{'
         descricao=STRING ','
-        url=URL ','
+        url=STRING ','
         '[' (NOME (',' NOME)*)? ']'
     '}'
 ;
 
 listaConvidados:
-    '['
+    'convidados:' '['
         STRING (',' STRING)*
     ']'
 ;
 
 listaServicos:
-    '['
+    'servicos:' '['
           'fotografo:' fotografo
         | 'buffet:' buffet
         | 'cerimonial:' cerimonial
@@ -134,10 +134,11 @@ lua_de_mel:
     '}'
 ;
 
-NOME: ('a'..'z') ('a'..'z')
+NOME: [a-z][a-z0-9]+
 ;
 
-STRING: ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '0'..'9' | '_')*
+//STRING: ('a'..'z' | 'A'..'Z' | '_' | ' ' | '\r' | '\n') ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | ' ' | '\r' | '\n')*
+STRING: '"' ~('"'|'\n')* '"'
 ;
 
 DATA: ('0'..'3') ('0'..'9') '/' ('0'..'1') ('0'..'9') '/' ('0'..'2') ('0'..'9') ('0'..'9') ('0'..'9')
@@ -149,10 +150,12 @@ NUM_INT: ('0'..'9')+
 NUM_REAL : ('0' .. '9')+ '.' ('0' .. '9')+
 ;
 
-URL: 'h' 't' 't' 'p' ':' '/' '/' 'w' 'w' 'w' '.' ('a'..'z')+ '.' 'c' 'o' 'm' ('/')? ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '?' | '.' | '=' | '/')*
-;
+WS: (' ' | '\r' | '\n' |'\t')+ -> skip;
 
-COMMENTNFECHADO:  '{' ~('\n' | '}' )* '\n' 
-               ;
+//URL: 'h' 't' 't' 'p' ':' '/' '/' 'w' 'w' 'w' '.' ('a'..'z')+ '.' 'c' 'o' 'm' ('/')? ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '?' | '.' | '=' | '/')*
+//;
 
-ERROCHAR: .;
+//COMMENTNFECHADO:  '{' ~('\n' | '}' )* '\n' 
+  //             ;
+
+//ERROCHAR: .;

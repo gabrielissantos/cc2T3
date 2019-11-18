@@ -40,18 +40,6 @@ public class casamentoBaseListener implements casamentoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterData(casamentoParser.DataContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitData(casamentoParser.DataContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterNumConvidados(casamentoParser.NumConvidadosContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -59,6 +47,18 @@ public class casamentoBaseListener implements casamentoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNumConvidados(casamentoParser.NumConvidadosContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterData(casamentoParser.DataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitData(casamentoParser.DataContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
