@@ -24,8 +24,12 @@ data:
 
 listaPadrinhos:
     'padrinhos:' '['
-        NOME ':' STRING
+        padrinho*
     ']'
+;
+
+padrinho:
+    NOME ':' STRING
 ;
 
 listaPresentes:
@@ -90,7 +94,10 @@ local:
         'nome:' STRING
         'endereco:' STRING
         'contato:' NUM_INT
+        'horario_inicio:' HORARIO
+        'horario_fim:' HORARIO
         'preco:' 'R$' NUM_REAL
+        'capacidade:' NUM_INT
     '}'
 ;
 
@@ -144,18 +151,14 @@ STRING: '"' ~('"'|'\n')* '"'
 DATA: ('0'..'3') ('0'..'9') '/' ('0'..'1') ('0'..'9') '/' ('0'..'2') ('0'..'9') ('0'..'9') ('0'..'9')
 ;
 
+HORARIO:
+    ('0'..'2')('0'..'9') 'h' ('0'..'5')('0'..'9')
+;
+
 NUM_INT: ('0'..'9')+
 ;
 
-NUM_REAL : ('0' .. '9')+ '.' ('0' .. '9')+
+NUM_REAL : ('0' .. '9')+ ',' ('0' .. '9')+
 ;
 
 WS: (' ' | '\r' | '\n' |'\t')+ -> skip;
-
-//URL: 'h' 't' 't' 'p' ':' '/' '/' 'w' 'w' 'w' '.' ('a'..'z')+ '.' 'c' 'o' 'm' ('/')? ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '?' | '.' | '=' | '/')*
-//;
-
-//COMMENTNFECHADO:  '{' ~('\n' | '}' )* '\n' 
-  //             ;
-
-//ERROCHAR: .;
